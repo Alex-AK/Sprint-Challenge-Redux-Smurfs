@@ -8,10 +8,9 @@ import {
   GET_SMURFS_FAIL,
   ADD_SMURF,
   ADD_SMURF_COMPLETE,
-  ADD_SMURF_FAIL
-  // DELETE_SMURF,
-  // DELETE_SMURF_COMPLETE,
-  // DELETE_SMURF_FAIL,
+  ADD_SMURF_FAIL,
+  DELETE_SMURF,
+  DELETE_SMURF_FAIL
   // UPDATE_SMURF,
   // UPDATE_SMURF_COMPLETE,
   // UPDATE_SMURF_FAIL
@@ -61,6 +60,18 @@ export default (state = initialState, action) => {
         error: ''
       };
     case ADD_SMURF_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      };
+    case DELETE_SMURF:
+      return {
+        ...state,
+        smurfs: action.payload,
+        error: ''
+      };
+    case DELETE_SMURF_FAIL:
       return {
         ...state,
         isLoading: false,

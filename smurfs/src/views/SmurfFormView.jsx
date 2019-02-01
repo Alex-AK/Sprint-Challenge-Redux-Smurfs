@@ -23,6 +23,13 @@ export class SmurfFormView extends Component {
   addSmurf = e => {
     e.preventDefault();
     this.props.addSmurf(this.state.smurf);
+    this.setState({
+      smurf: {
+        name: '',
+        age: '',
+        height: ''
+      }
+    });
   };
 
   render() {
@@ -37,12 +44,6 @@ export class SmurfFormView extends Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    // smurfs: state.smurfs
-  };
-};
 
 export default connect(
   null,
