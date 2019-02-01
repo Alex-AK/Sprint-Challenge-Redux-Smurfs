@@ -30,7 +30,22 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case GET_SMURFS:
       return {
-        ...state
+        ...state,
+        isLoading: true,
+        error: ''
+      };
+    case GET_SMURFS_COMPLETE:
+      return {
+        ...state,
+        smurfs: action.payload,
+        isLoading: false,
+        error: ''
+      };
+    case GET_SMURFS_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
       };
     default:
       return state;
