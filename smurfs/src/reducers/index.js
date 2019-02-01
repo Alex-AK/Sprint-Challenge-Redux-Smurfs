@@ -2,17 +2,40 @@
   Be sure to import in all of the action types from `../actions`
 */
 
-/*
- Your initial/default state for this project could *Although does not have to* look a lot like this
- {
-   smurfs: [],
-   fetchingSmurfs: false
-   addingSmurf: false
-   updatingSmurf: false
-   deletingSmurf: false
-   error: null
- }
-*/
+import {
+  GET_SMURFS,
+  GET_SMURFS_COMPLETE,
+  GET_SMURFS_FAIL,
+  ADD_SMURF,
+  ADD_SMURF_COMPLETE,
+  ADD_SMURF_FAIL,
+  DELETE_SMURF,
+  DELETE_SMURF_COMPLETE,
+  DELETE_SMURF_FAIL,
+  UPDATE_SMURF,
+  UPDATE_SMURF_COMPLETE,
+  UPDATE_SMURF_FAIL
+} from '../actions';
+
+const initialState = {
+  smurfs: [],
+  isLoading: false,
+  addingSmurf: false,
+  updatingSmurf: false,
+  deletingSmurf: false,
+  error: ''
+};
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case GET_SMURFS:
+      return {
+        ...state
+      };
+    default:
+      return state;
+  }
+};
 
 /*
   You'll only need one smurf reducer for this project.
